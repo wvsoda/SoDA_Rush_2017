@@ -27,7 +27,7 @@ manager.on('move', function(evt, joystick) {
   if (joystick) {
     console.log("sending following package")
     console.log(joystick)
-    control.talkToScreen({joystickData: joystick})
+    control.talkToScreen({joystickData: joystick.position})
   }
 })
 
