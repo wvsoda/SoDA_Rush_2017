@@ -35,7 +35,7 @@ class AirConsoleWrapper {
                         document.getElementById("data").innerHTML += deviceId
                     }
                 }
-                else if (player != undefined && data.joystickData) {
+                if (player != undefined && data.joystickData) {
                     document.getElementById("data").innerHTML = "Player ID:" + deviceId + "Position: " +  data.joystickData.position + "Angle: " + data.joystickData.angle
                 }
     
