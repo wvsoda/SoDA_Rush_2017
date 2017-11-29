@@ -30,6 +30,12 @@ manager.on('move', function(evt, joystick) {
     control.talkToScreen({joystickData: joystick})
   }
 })
+
+document.getElementById("fire-button").onclick =
+function() {
+    control.talkToScreen("fire! by-"+control.airconsole.convertDeviceIdToPlayerNumber(control.airconsole.getDeviceId()))
+}
+
 }
 
 

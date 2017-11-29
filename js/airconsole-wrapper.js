@@ -8,7 +8,8 @@ class AirConsoleWrapper {
                 console.log("Does it connect?");
                 this.players.push(deviceId);
                 this.atLeastTwoPlayers();
-                this.talkToPlayer(this.airconsole.convertDeviceIdToPlayerNumber(deviceId), {content: "Hello from Screen"})
+                var playerNum = this.airconsole.convertDeviceIdToPlayerNumber(deviceId)
+                this.talkToPlayer(playerNum, {content: "Hello from Screen, you are player-"+playerNum})
             }
             this.airconsole.onDisconnect = (deviceId) => {
             var player = this.airconsole.convertDeviceIdToPlayerNumber(deviceId);
@@ -28,14 +29,14 @@ class AirConsoleWrapper {
                     // code
                     console.log("screen received message: WE'RE IN")
                     if (this.players.length == 1) {
-                        document.getElementById("data").innerHTML = deviceId
+                        document.getElementById("data").innerHTML = data.content
                     }
                     else {
                         document.getElementById("data").innerHTML += ", "
-                        document.getElementById("data").innerHTML += deviceId
+                        document.getElementById("data").innerHTML += data.content
                     }
                 }
-                if (player != undefined && data.joystickData) {
+                if (player != undefined && data.joystickData !== undefined) {
                     document.getElementById("data").innerHTML = "Player ID:" + deviceId + "Position: " +  data.joystickData.position + "Angle: " + data.joystickData.angle
                 }
     
