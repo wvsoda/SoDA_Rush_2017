@@ -19,7 +19,7 @@ document.body.onload = () => {
 
 var manager = nipplejs.create({
         zone: document.getElementById('joystick-zone'),
-        mode: 'static',
+        //mode: 'static',
         position: {left: '50%', top: '30%'},
         color: 'red'
     });
@@ -33,7 +33,7 @@ manager.on('move', function(evt, joystick) {
 
 document.getElementById("fire-button").onclick =
 function() {
-    control.talkToScreen("fire! by-"+control.airconsole.convertDeviceIdToPlayerNumber(control.airconsole.getDeviceId()))
+    control.talkToScreen({fireData: "fire! by-"+control.airconsole.convertDeviceIdToPlayerNumber(control.airconsole.getDeviceId())})
 }
 
 }

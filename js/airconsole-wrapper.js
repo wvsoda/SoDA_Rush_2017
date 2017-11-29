@@ -24,25 +24,26 @@ class AirConsoleWrapper {
             this.airconsole.onMessage = (deviceId, data) => {
                 var player = this.airconsole.convertDeviceIdToPlayerNumber(deviceId)
                 console.log("screen received message")
-                if (player != undefined && data.content !== undefined) {
-                    // data is an object that holds stuff, you can set what you want inside
-                    // code
-                    console.log("screen received message: WE'RE IN")
-                    if (this.players.length == 1) {
-                        document.getElementById("data").innerHTML = data.content
+                if (player != undefined) {
+                    if (data.content !== undefined) {
+                        // data is an object that holds stuff, you can set what you want inside
+                        // code
+                        console.log("screen received message: WE'RE IN")
+                        if (this.players.length == 1) {
+                            document.getElementById("data").innerHTML = data.content
+                        }
+                        else {
+                            document.getElementById("data").innerHTML += ", "
+                            document.getElementById("data").innerHTML += data.content
+                        }
                     }
-                    else {
-                        document.getElementById("data").innerHTML += ", "
-                        document.getElementById("data").innerHTML += data.content
+                    if (data.joystickData !== undefined) {
+                        document.getElementById("data").innerHTML = "Player Num:" + player + "Position: " +  data.joystickData.position + "Angle: " + data.joystickData.angle
+                    }
+                    if (data.fireData !== undefined) {
+                        console.log("fired?- "+data.fireData+" from player"+player)
                     }
                 }
-                if (player != undefined && data.joystickData !== undefined) {
-                    document.getElementById("data").innerHTML = "Player ID:" + deviceId + "Position: " +  data.joystickData.position + "Angle: " + data.joystickData.angle
-                }
-                else {
-                    console.log("fired?- "+data.content+" from player"+player)
-                }
-    
             }
             
         }
