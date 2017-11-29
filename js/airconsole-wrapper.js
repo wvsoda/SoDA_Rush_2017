@@ -36,9 +36,9 @@ class AirConsoleWrapper {
                         document.getElementById("data").innerHTML += data.content
                     }
                 }
-                if (player != undefined && data.joystickData !== undefined) {
+                //if (player != undefined && data.joystickData !== undefined) {
                     document.getElementById("data").innerHTML = "Player ID:" + deviceId + "Position: " +  data.joystickData.position + "Angle: " + data.joystickData.angle
-                }
+                //}
     
             }
             
