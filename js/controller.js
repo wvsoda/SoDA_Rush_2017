@@ -19,7 +19,7 @@ document.body.onload = () => {
 
 var manager = nipplejs.create({
         zone: document.getElementById('joystick-zone'),
-        //mode: 'static',
+        mode: 'dynamic',
         position: {left: '50%', top: '30%'},
         color: 'red'
     });
