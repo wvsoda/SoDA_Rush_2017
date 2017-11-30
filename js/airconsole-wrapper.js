@@ -38,7 +38,7 @@ class AirConsoleWrapper {
                         }
                     }
                     if (data.joystickData !== undefined) {
-                        document.getElementById("data").innerHTML = "Player Num:" + player + "Position: " +  data.joystickData.position + "Angle: " + data.joystickData.angle
+                        document.getElementById("data").innerHTML = "Player Num: " + player + "Position: " +  data.joystickData// + "Angle: " + data.joystickData.angle
                     }
                     if (data.fireData !== undefined) {
                         console.log("fired?- "+data.fireData+" from player"+player)
