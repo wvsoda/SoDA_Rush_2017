@@ -38,10 +38,10 @@ class AirConsoleWrapper {
                         }
                     }
                     if (data.joystickData !== undefined) {
-                        document.getElementById("data").innerHTML = "Player Num: " + player + "Position: " +  data.joystickData// + "Angle: " + data.joystickData.angle
+                        document.getElementById("data").innerHTML = "Player Num: " + player + "Position: " +  data.joystickData.content// + "Angle: " + data.joystickData.angle
                     }
                     if (data.fireData !== undefined) {
-                        console.log("fired?- "+data.fireData+" from player"+player)
+                        document.getElementById("data").innerHTML = "fired?- "+data.fireData+" from player"+player
                     }
                 }
             }
